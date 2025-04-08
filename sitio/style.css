@@ -1,0 +1,110 @@
+/* Resetear márgenes y agregar estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo general con imagen */
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('fondo.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Contenedor principal */
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilos generales de bloques */
+header, nav, .section, footer {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo {
+    height: 80px;
+    width: auto;
+    float: left;
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+/* Encabezado */
+header {
+    text-align: left;
+    overflow: auto;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Navegación */
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Títulos de sección */
+.section h2 {
+    margin-bottom: 15px;
+    color: #4CAF50;
+}
+
+/* Formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form input, form textarea, form button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Pie de página */
+footer {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
