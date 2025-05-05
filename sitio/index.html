@@ -19,6 +19,7 @@
                 <li><a href="#video">Relájate</a></li>
                 <li><a href="#tips">Consejos</a></li>
                 <li><a href="#recursos">Recursos</a></li>
+                <li><a href="#gestion">Gestión</a></li>
                 <li><a href="#contacto">Contáctanos</a></li>
             </ul>
         </nav>
@@ -53,6 +54,26 @@
                 </ul>
             </section>
 
+            <section id="gestion" class="section">
+                <h2>Gestión de Recursos Anti Estrés</h2>
+                <p>Administra una base de datos de recursos como videos, enlaces o consejos.</p>
+
+                <form id="formulario-recursos">
+                    <label for="titulo">Consejo:</label>
+                    <input type="text" id="titulo" name="titulo" required>
+
+                    <label for="descripcion">Descripción:</label>
+                    <input type="text" id="descripcion" name="descripcion" required>
+
+                    <label for="enlace">Enlace:</label>
+                    <input type="url" id="enlace" name="enlace" required>
+
+                    <button type="submit">Agregar Recurso</button>
+                </form>
+
+                <div id="lista-recursos"></div>
+            </section>
+
             <section id="contacto" class="section">
                 <h2>Contáctanos</h2>
                 <p>¿Tienes alguna sugerencia o comentario? Llena el formulario a continuación:</p>
@@ -76,5 +97,61 @@
             Alumno: Raymundo Salas Rodríguez </p>
         </footer>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const formulario = document.getElementById('formulario-recursos');
+            const lista = document.getElementById('lista-recursos');
+
+            function mostrarRecursos() {
+                const recursos = JSON.parse(localStorage.getItem('recursos')) || [];
+                lista.innerHTML = '';
+                recursos.forEach((r, i) => {
+                    const div = document.createElement('div');
+                    div.innerHTML = `
+                        <strong>${r.titulo}</strong><br>
+                        ${r.descripcion}<br>
+                        <a href="${r.enlace}" target="_blank">Ver</a><br>
+                        <button onclick="editarRecurso(${i})">Editar</button>
+                        <button onclick="eliminarRecurso(${i})">Eliminar</button>
+                        <hr>
+                    `;
+                    lista.appendChild(div);
+                });
+            }
+
+            formulario.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const nuevo = {
+                    titulo: formulario.titulo.value,
+                    descripcion: formulario.descripcion.value,
+                    enlace: formulario.enlace.value
+                };
+                const recursos = JSON.parse(localStorage.getItem('recursos')) || [];
+                recursos.push(nuevo);
+                localStorage.setItem('recursos', JSON.stringify(recursos));
+                formulario.reset();
+                mostrarRecursos();
+            });
+
+            window.eliminarRecurso = function (index) {
+                const recursos = JSON.parse(localStorage.getItem('recursos')) || [];
+                recursos.splice(index, 1);
+                localStorage.setItem('recursos', JSON.stringify(recursos));
+                mostrarRecursos();
+            };
+
+            window.editarRecurso = function (index) {
+                const recursos = JSON.parse(localStorage.getItem('recursos')) || [];
+                const r = recursos[index];
+                formulario.titulo.value = r.titulo;
+                formulario.descripcion.value = r.descripcion;
+                formulario.enlace.value = r.enlace;
+                eliminarRecurso(index); // se borra y se vuelve a ingresar editado
+            };
+
+            mostrarRecursos();
+        });
+    </script>
 </body>
 </html>
