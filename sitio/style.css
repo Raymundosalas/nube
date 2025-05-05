@@ -1,11 +1,9 @@
-/* Resetear márgenes y agregar estilos básicos */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Fondo general con imagen */
 body {
     font-family: 'Arial', sans-serif;
     background: url('fondo.png') no-repeat center center fixed;
@@ -15,13 +13,11 @@ body {
     padding: 20px;
 }
 
-/* Contenedor principal */
 .contenedor {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Estilos generales de bloques */
 header, nav, .section, footer {
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 10px;
@@ -30,7 +26,6 @@ header, nav, .section, footer {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Logo */
 .logo {
     height: 80px;
     width: auto;
@@ -39,7 +34,6 @@ header, nav, .section, footer {
     border-radius: 10px;
 }
 
-/* Encabezado */
 header {
     text-align: left;
     overflow: auto;
@@ -50,7 +44,6 @@ header h1 {
     color: #333;
 }
 
-/* Navegación */
 nav ul {
     list-style: none;
     text-align: center;
@@ -71,13 +64,11 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Títulos de sección */
 .section h2 {
     margin-bottom: 15px;
     color: #4CAF50;
 }
 
-/* Formulario */
 form {
     display: flex;
     flex-direction: column;
@@ -102,7 +93,27 @@ form button:hover {
     background-color: #45a049;
 }
 
-/* Pie de página */
+#lista-recursos div {
+    background-color: #f9f9f9;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#lista-recursos button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #e91e63;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#lista-recursos button:hover {
+    background-color: #c2185b;
+}
+
 footer {
     text-align: center;
     font-size: 14px;
